@@ -19,6 +19,8 @@ from django.urls import path
 from rest_framework.schemas import get_schema_view
 from rest_framework.documentation import include_docs_urls
 
+from feed.views import home
+
 API_TITLE = 'Feed API'
 API_DESCRIPTION = 'A Web API.'
 
@@ -29,6 +31,7 @@ urlpatterns = [
     url(r'^schema/$', schema_view),
 
     path('admin/', admin.site.urls),
-    url(r'^docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION))
+    url(r'^docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION)),
+    url(r'^home', home)
 
 ]
