@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from rest_framework import status
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
-from rest_framework.decorators import authentication_classes, api_view, permission_classes
+from rest_framework.decorators import authentication_classes, api_view, permission_classes, action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from wheel.util import to_json
@@ -11,6 +11,13 @@ from wheel.util import to_json
 # @authentication_classes((TokenAuthentication, SessionAuthentication,))
 # @permission_classes((IsAuthenticated,))
 def home(request):
-    resp = {"test": "fun"}
+        """
+    get:
+    Return a list of all the existing users.
 
-    return Response(resp, status=status.HTTP_200_OK)
+    post:
+    Create a new user instance.
+    """
+        resp = {"test": "fun"}
+
+        return Response(resp, status=status.HTTP_200_OK)

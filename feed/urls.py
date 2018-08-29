@@ -24,12 +24,7 @@ from feed.views import home
 API_TITLE = 'Feed API'
 API_DESCRIPTION = 'A Web API.'
 
-schema_view = get_schema_view(title=API_TITLE)
-
-
 urlpatterns = [
-    url(r'^schema/$', schema_view),
-
     path('admin/', admin.site.urls),
     url(r'^docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION)),
     url(r'^home', home)
