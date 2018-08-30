@@ -15,16 +15,27 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
 from rest_framework.schemas import get_schema_view
 from rest_framework.documentation import include_docs_urls
+from rest_framework_swagger.views import get_swagger_view
+
 
 from feed.views import home
+from users.views import UserViewSet
+router = routers.SimpleRouter()
 
 API_TITLE = 'Feed API'
 API_DESCRIPTION = 'A Web API.'
+schema_view = get_swagger_view(title=API_TITLE)
+router.register(r'users', UserViewSet, base_name='users')
+
 
 urlpatterns = [
+    url(r'^swagger$', schema_view),
+    # url(r'^users', ),
+    url(r'^', include(router.urls)),
     path('admin/', admin.site.urls),
     url(r'^docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION)),
     url(r'^home', home)

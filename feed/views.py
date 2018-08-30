@@ -7,17 +7,19 @@ from rest_framework.response import Response
 from wheel.util import to_json
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 # @authentication_classes((TokenAuthentication, SessionAuthentication,))
 # @permission_classes((IsAuthenticated,))
 def home(request):
-        """
+    """
     get:
     Return a list of all the existing users.
 
     post:
     Create a new user instance.
     """
-        resp = {"test": "fun"}
+    if "test" in request.data:
+        return Response({}, status=status.HTTP_400_BAD_REQUEST)
+    resp = {"test": "fun"}
 
-        return Response(resp, status=status.HTTP_200_OK)
+    return Response(resp, status=status.HTTP_200_OK)
