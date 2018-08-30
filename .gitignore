@@ -1,0 +1,6 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+environment_constants/stag.py
+feed/settings.py
+f_env/
+
