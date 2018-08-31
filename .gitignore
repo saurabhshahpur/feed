@@ -4,3 +4,6 @@ environment_constants/stag.py
 feed/settings.py
 f_env/
 
+env_f/
+*__pycache__*
+

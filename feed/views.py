@@ -4,7 +4,6 @@ from rest_framework.authentication import TokenAuthentication, SessionAuthentica
 from rest_framework.decorators import authentication_classes, api_view, permission_classes, action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from wheel.util import to_json
 
 
 @api_view(['POST'])

@@ -8,7 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.utils import json
 
-from feed.models import User
+# from feed.models import User
 
 logger = logging.getLogger(__name__)
 
@@ -42,7 +42,7 @@ class UserViewSet(viewsets.ViewSet):
     def create(self, request):
         user_name = request.data["user_name"]
         password = request.data["password"]
-        User.objects.create(username=user_name, password=password, email=user_name, is_staff=True)
+        # User.objects.create(username=user_name, password=password, email=user_name, is_staff=True)
         return Response({"success": "True", "msg": "user created"})
 
     def retrieve(self, request, pk=None):
