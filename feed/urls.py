@@ -23,6 +23,7 @@ from rest_framework_swagger.views import get_swagger_view
 
 
 from feed.views import home
+from social_community.views import FeedViewSet
 from users.views import UserViewSet
 router = routers.SimpleRouter()
 
@@ -30,6 +31,7 @@ API_TITLE = 'Feed API'
 API_DESCRIPTION = 'A Web API.'
 schema_view = get_swagger_view(title=API_TITLE)
 router.register(r'users', UserViewSet, base_name='users')
+router.register(r'feed', FeedViewSet, base_name='')
 
 
 urlpatterns = [
